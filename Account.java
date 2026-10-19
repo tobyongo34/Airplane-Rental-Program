@@ -24,6 +24,7 @@ public class Account {
     }
     public String toString() {
         return "Card Number: " + creditCardNum + ", Company Name: " + companyName + ", Prime Customer: " + primeCustomer;   
-                
+    
+        
     }
 }

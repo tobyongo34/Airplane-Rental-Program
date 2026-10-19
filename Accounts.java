@@ -7,6 +7,7 @@ public class Accounts {
     private void initToNulls(Account[] accounts) {
         for (int i = 0; i < accounts.length; i++) {
             accounts[i] = null;
+            
         }
     }
 }
