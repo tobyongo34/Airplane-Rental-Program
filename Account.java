@@ -57,7 +57,7 @@ public class Account {
         current = 0;
     }
     public Account getAccount(String creditCardNum) {
-        AccountNotFoundException exception = new AccountNotFoundException("Account with credit card number " + creditCardNum + " not found.");
+        java.util.NoSuchElementException exception = new java.util.NoSuchElementException("Account with credit card number " + creditCardNum + " not found.");
         throw exception;
     }
 }
