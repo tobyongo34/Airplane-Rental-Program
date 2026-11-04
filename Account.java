@@ -23,8 +23,34 @@ public class Account {
         return primeCustomer;
     }
     public String toString() {
-        return "Card Number: " + creditCardNum + ", Company Name: " + companyName + ", Prime Customer: " + primeCustomer;   
-    
-        
+        return "Card Number: " + creditCardNum + ", Company Name: " + companyName + ", Prime Customer: " + primeCustomer;
     }
+
+    public boolean hasNext(Account[] accounts, int current) {
+        if (accounts == null) {
+            return false;
+        }
+        for (int i = Math.max(0, current); i < accounts.length; i++) {
+            if (accounts[i] != null) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Account getNext(Account[] accounts, int current) {
+        if (accounts == null) {
+            return null;
+        }
+        if (current < 0 || current > accounts.length) {
+            throw new ArrayIndexOutOfBoundsException(current);
+        }
+        for (int i = current; i < accounts.length; i++) {
+            if (accounts[i] != null) {
+                return accounts[i];
+            }
+        }
+        return null;
+    }
+
 }
