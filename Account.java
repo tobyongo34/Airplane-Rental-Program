@@ -1,4 +1,5 @@
 public class Account {
+    private int current;
     String creditCardNum;
     String companyName;
     boolean primeCustomer;
@@ -52,5 +53,11 @@ public class Account {
         }
         return null;
     }
-
+    public void reset() {
+        current = 0;
+    }
+    public Account getAccount(String creditCardNum) {
+        AccountNotFoundException exception = new AccountNotFoundException("Account with credit card number " + creditCardNum + " not found.");
+        throw exception;
+    }
 }
