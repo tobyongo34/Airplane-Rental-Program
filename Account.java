@@ -56,8 +56,23 @@ public class Account {
     public void reset() {
         current = 0;
     }
-    public Account getAccount(String creditCardNum) {
-        java.util.NoSuchElementException exception = new java.util.NoSuchElementException("Account with credit card number " + creditCardNum + " not found.");
-        throw exception;
+    public Account getAccount(Account[] accounts, String creditCardNum) throws AccountNotFoundException {
+        if (accounts != null) {
+            for (int i = 0; i < accounts.length; i++) {
+                Account account = accounts[i];
+                if (account != null && (creditCardNum == null
+                        ? account.getCreditCardNum() == null
+                        : creditCardNum.equals(account.getCreditCardNum()))) {
+                    return account;
+                }
+            }
+        }
+        throw new AccountNotFoundException();
     }
+
+    
+}
+
+class AccountNotFoundException extends Exception {
+    private static final long serialVersionUID = 1L;
 }
